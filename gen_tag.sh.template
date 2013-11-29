@@ -1,0 +1,13 @@
+#!/bin/bash
+LNX=`pwd`
+cd $LNX
+find $LNX \
+	-path "$LNX/arch/*" ! -path "$LNX/arch/mips*" -prune -o               \
+	-path "$LNX/include/asm-*" ! -path "$LNX/include/asm-generic*" -prune -o \
+	-path "$LNX/tmp*" -prune -o                                           \
+	-path "$LNX/Documentation*" -prune -o                                 \
+	-path "$LNX/scripts*" -prune -o                                       \
+ 	-name "*.[chxsS]" -print > $LNX/cscope.files
+
+ctags -L cscope.files
+cscope -Rkbq

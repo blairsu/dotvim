@@ -1,0 +1,56 @@
+#!/bin/bash
+# SCRIPT:  hex2binary.sh
+# USAGE:   hex2binary.sh Hex_Number(s)
+# PURPOSE: Hex to Binary Conversion. Takes input as command line
+#          arguments.
+#####################################################################
+#                      Script Starts Here                           #
+#####################################################################
+
+if [ $# -eq 0 ]
+then
+    printf "Argument(s) not supplied\n"
+    printf "Usage: hex2binary.sh hex_number(s)\n"
+else
+    echo -e "\033[1mDEC\033[0m"
+	echo -e "$1"
+
+    while [ $# -ne 0 ]
+	do
+       	DecNum=`printf "%d" $1`
+       	Binary=
+	   	Number=$DecNum
+	   	identNo=0
+	   	totalBit=32
+
+       	while [ $totalBit -ne 0 ]
+       	do
+			identNo=$(( $identNo + 1 ))
+
+	     	Bit=$(expr $DecNum % 2)
+	     	Binary=$Bit" "$Binary
+	     	DecNum=$(expr $DecNum / 2)
+
+			if [ $identNo -eq 4 ]
+			then
+				identNo=0
+				Binary=" "$Binary 
+			fi
+
+			totalBit=$(( $totalBit - 1 ))
+	   	done
+
+    	echo -e "\033[1mHEX\033[0m"
+    	echo -e "$Number"
+        echo -e " "
+        echo -e "\033[1m          3 3 2 2  2 2 2 2  2 2 2 2  1 1 1 1  1 1 1 1  1 1\033[0m"
+        echo -e "\033[1mBINARY    1 0 9 8  7 6 5 4  3 2 1 0  9 8 7 6  5 4 3 2  1 0 9 8  7 6 5 4  3 2 1 0 \033[0m"
+    	echo -e "         $Binary"
+		printf "\n"
+
+    	shift
+    	# Shifts command line arguments one step.Now $1 holds second argument
+    	unset Binary
+    done
+
+fi
