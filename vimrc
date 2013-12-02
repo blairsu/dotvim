@@ -1,10 +1,11 @@
 " vim default setting
-set tabstop=4
-set si
+set tabstop=4 
 set hlsearch                " search highlighting
+set bs=2                " allow backspacing over everything in insert mode "
 set history=50                " keep 50 lines of command line history
 set ruler                " show the cursor position all the time
 set autoread                " auto read when file is changed from outside
+filetype off          " necessary to make ftdetect work on Linux "
 syntax on				 " vim syntax highlight
 filetype on				"Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
@@ -18,7 +19,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " key map
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
-nnoremap <silent> <F7> :TlistToggle<CR>
 
 " plugin taglist parameters
 let Tlist_Inc_Winwidth=0
@@ -77,7 +77,8 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
 " plugin pathogen 
-call pathogen#runtime_append_all_bundles()
+" call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
 call pathogen#helptags()
 
 
@@ -103,6 +104,12 @@ set guifont=Inconsolata:h18
 
 " --- Command-T
 let g:CommandTMaxHeight = 15
+
+" --- TagBar
+" toggle TagBar with F7
+nnoremap <silent> <F7> :TagbarToggle<CR> 
+" set focus to TagBar when opening it
+let g:tagbar_autofocus = 1
 
 " --- SnipMate
 let g:snipMateAllowMatchingDot = 0
