@@ -1,3 +1,8 @@
+" plugin pathogen 
+" call pathogen#runtime_append_all_bundles()
+call pathogen#incubate()
+call pathogen#helptags()
+
 " vim default setting
 set tabstop=4 
 set hlsearch                " search highlighting
@@ -76,14 +81,25 @@ autocmd FileType c,cpp,cc  set cindent comments=sr:/*,mb:*,el:*/,:// cino=>s,e0,
 set viminfo='10,\"100,:20,%,n~/.viminfo
 au BufReadPost * if line("'\"") > 0|if line("'\"") <= line("$")|exe("norm '\"")|else|exe "norm $"|endif|endif
 
-" plugin pathogen 
-" call pathogen#runtime_append_all_bundles()
-call pathogen#incubate()
-call pathogen#helptags()
+"--------------------------------------------------------------------------- 
+" USEFUL SHORTCUTS
+"--------------------------------------------------------------------------- 
 
+" move around tabs. conflict with the original screen top/bottom
+" comment them out if you want the original H/L
+" go to prev tab 
+map <S-H> gT
+" go to next tab
+map <S-L> gt
 
+" new tab
+map <C-t><C-t> :tabnew<CR>
+" close tab
+map <C-t><C-w> :tabclose<CR> 
+ 
 " Enable omni completion. (Ctrl-X Ctrl-O)
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType c set omnifunc=ccomplete#Complete
 
