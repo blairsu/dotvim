@@ -1,13 +1,13 @@
 #!/bin/bash
-LNX=`pwd`
-cd $LNX
-find $LNX \
-	-path "$LNX/arch/*" ! -path "$LNX/arch/mips*" -prune -o               \
-	-path "$LNX/include/asm-*" ! -path "$LNX/include/asm-generic*" -prune -o \
-	-path "$LNX/tmp*" -prune -o                                           \
-	-path "$LNX/Documentation*" -prune -o                                 \
-	-path "$LNX/scripts*" -prune -o                                       \
- 	-name "*.[chxsS]" -print > $LNX/cscope.files
+PWD=`pwd`
+cd $PWD
+find -L $PWD \
+	-path "$PWD/arch/*" ! -path "$PWD/arch/mips*" -prune -o               \
+	-path "$PWD/include/asm-*" ! -path "$PWD/include/asm-generic*" -prune -o \
+	-path "$PWD/tmp*" -prune -o                                           \
+	-path "$PWD/Documentation*" -prune -o                                 \
+	-path "$PWD/scripts*" -prune -o                                       \
+ 	-name "*.[chxsS]" -print > $PWD/cscope.files
 
 ctags -L cscope.files
 cscope -Rkbq
