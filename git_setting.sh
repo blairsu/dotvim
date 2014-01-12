@@ -6,4 +6,4 @@ git config --global alias.last 'log -1 HEAD'
 git config --global alias.lp 'log --graph --color --pretty=format:"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset" --abbrev-commit'
 git config --global alias.unstage 'reset HEAD --'
 git config --global alias.dt 'difftool -t vimdiff -y'
-git config --global alias.diff 'diff --color'
+git config --global color.diff always
