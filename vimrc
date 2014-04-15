@@ -124,6 +124,11 @@ set guifont=Inconsolata:h18
 " --- Command-T
 let g:CommandTMaxHeight = 15
 
+" --- SuperTab
+let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>",  "&omnifunc:<c-x><c-o>"]
+
 " --- TagBar
 " toggle TagBar with F7
 nnoremap <silent> <F7> :TagbarToggle<CR> 
