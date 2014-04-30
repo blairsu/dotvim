@@ -22,6 +22,20 @@ filetype plugin on    " Enable filetype-specific plugins
 set showmatch                " Cursor shows matching ) and }
 set showmode                " Show current mode
 
+set diffopt+=iwhite
+set diffexpr=DiffW()
+function DiffW()
+   let opt = "" 
+   if &diffopt =~ "icase" 
+      let opt = opt . "-i " 
+   endif 
+   if &diffopt =~ "iwhite" 
+      let opt = opt . "-w " " vim uses -b by default 
+   endif 
+   silent execute "!diff -a --binary " . opt . 
+            \ v:fname_in . " " . v:fname_new .  " > " . v:fname_out 
+endfunction
+
 " auto reload vimrc when editing it
 autocmd! bufwritepost .vimrc source ~/.vimrc
 
@@ -129,6 +143,7 @@ let g:CommandTMaxHeight = 15
 nnoremap <silent> <F7> :TagbarToggle<CR> 
 " set focus to TagBar when opening it
 let g:tagbar_autofocus = 1
+"autocmd FileType h,c,cpp nested :TagbarOpen
 
 " --- SnipMate
 let g:snipMateAllowMatchingDot = 0
