@@ -104,15 +104,16 @@ map <C-t><C-w> :tabclose<CR>
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType c set omnifunc=ccomplete#Complete
+" diable omnicomplete, because I use ycm to replace default omnicomplete
+" autocmd FileType c set omnifunc=ccomplete#Complete
 
 " use syntax complete if nothing else available
-if has("autocmd") && exists("+omnifunc")
-		  autocmd Filetype *
-		              \        if &omnifunc == "" |
-		              \                setlocal omnifunc=syntaxcomplete#Complete |
-				      \        endif
-endif
+"if has("autocmd") && exists("+omnifunc")
+"		  autocmd Filetype *
+"		              \        if &omnifunc == "" |
+"		              \                setlocal omnifunc=syntaxcomplete#Complete |
+"				      \        endif
+"endif
 
 " NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
