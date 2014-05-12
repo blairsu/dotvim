@@ -13,6 +13,7 @@ set ruler                " show the cursor position all the time
 set autoread                " auto read when file is changed from outside
 set background=dark     "solarized"
 colorscheme solarized
+let mapleader = ","     " map leader key to ,
 filetype off          " necessary to make ftdetect work on Linux "
 syntax on				 " vim syntax highlight
 filetype on				"Enable filetype detection
@@ -41,6 +42,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " key map
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " plugin taglist parameters
 let Tlist_Inc_Winwidth=0
@@ -118,15 +120,16 @@ map <C-t><C-w> :tabclose<CR>
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType c set omnifunc=ccomplete#Complete
+" diable omnicomplete, because I use ycm to replace default omnicomplete
+" autocmd FileType c set omnifunc=ccomplete#Complete
 
 " use syntax complete if nothing else available
-if has("autocmd") && exists("+omnifunc")
-		  autocmd Filetype *
-		              \        if &omnifunc == "" |
-		              \                setlocal omnifunc=syntaxcomplete#Complete |
-				      \        endif
-endif
+"if has("autocmd") && exists("+omnifunc")
+"		  autocmd Filetype *
+"		              \        if &omnifunc == "" |
+"		              \                setlocal omnifunc=syntaxcomplete#Complete |
+"				      \        endif
+"endif
 
 " NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
