@@ -13,6 +13,7 @@ set ruler                " show the cursor position all the time
 set autoread                " auto read when file is changed from outside
 set background=dark     "solarized"
 colorscheme solarized
+let mapleader = ","     " map leader key to ,
 filetype off          " necessary to make ftdetect work on Linux "
 syntax on				 " vim syntax highlight
 filetype on				"Enable filetype detection
@@ -27,6 +28,7 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " key map
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
+nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " plugin taglist parameters
 let Tlist_Inc_Winwidth=0
