@@ -37,7 +37,7 @@ let Tlist_Exit_OnlyWindow = 1 	"quit vim if taglist is the latest window
 let Tlist_Use_Right_Window = 1 	"list tag list at right side
 " let Tlist_Auto_Open = 1		"auto open tags
 
-set autoindent                " auto indentation
+set smartindent                " smart indentation
 set incsearch                " incremental search
 set nobackup                " no *~ backup files
 set copyindent                " copy the previous indentation on autoindenting
