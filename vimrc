@@ -143,3 +143,7 @@ let g:snipMateAllowMatchingDot = 0
 
 " --- vim-gitgutter
 let g:gitgutter_enabled = 1
+
+" --- indentline
+let g:indentLine_color_term = 239
+let g:indentLine_char = '┆'
