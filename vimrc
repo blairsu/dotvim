@@ -42,7 +42,6 @@ autocmd! bufwritepost .vimrc source ~/.vimrc
 
 " key map
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
-nnoremap <leader>jd :YcmCompleter GoToDefinitionElseDeclaration<CR>
 
 " plugin taglist parameters
 let Tlist_Inc_Winwidth=0
