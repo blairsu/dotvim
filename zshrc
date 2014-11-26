@@ -68,3 +68,4 @@ export PATH="/opt/local/bin:/Users/blairsu/bin:/usr/bin:/bin:/usr/sbin:/sbin:/us
 # ssh
 # export SSH_KEY_PATH="~/.ssh/dsa_id"
 
+export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
