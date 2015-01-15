@@ -30,10 +30,25 @@ fi
 # only pass one commit, so I will can rbt to post just 1 commit here
 if [ "$#" -eq 2 ]; then
    echo "1 commit, SHA = $2"
-   /usr/local/bin/rbt post -g auto --username=$USER --password=$PASS $2
+   /usr/local/bin/rbt post --guess-summary auto --description "commit $2" --username=$USER --password=$PASS $2
+
+   echo "Done!"
+   exit 0
 fi
 
 # pass multiple commit, then we should parsing the 1st and the last commit, then post range of commit via rbt command
-if [ "$#" -gt 3 ]; then
+if [ "$#" -gt 2 ]; then
    echo "multi-commit, parsing commit SHA here"
+
+   args=("$@")
+   echo "commit start between ${args[$#-1]}..${args[1]}"
+
+   /usr/local/bin/rbt post --guess-summary auto --description "commit ${args[$#-1]}..${args[1]}" --username=$USER --password=$PASS ${args[$#-1]}..${args[1]}
+
+   echo "Done!"
+
+   exit 0
 fi
+
+echo "Error, should not be here"
+exit -1
