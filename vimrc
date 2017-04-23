@@ -133,10 +133,6 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 " NERDTree
 autocmd vimenter * if !argc() | NERDTree | endif
 
-" for MacVim
-colorscheme desert
-set guifont=Inconsolata:h18
-
 " --- Command-T
 let g:CommandTMaxHeight = 15
 
