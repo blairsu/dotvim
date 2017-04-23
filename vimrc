@@ -155,5 +155,6 @@ let g:snipMateAllowMatchingDot = 0
 let g:gitgutter_enabled = 1
 
 " --- indentline
+let g:indentLine_enabled = 0
 let g:indentLine_color_term = 239
 let g:indentLine_char = '┆'
